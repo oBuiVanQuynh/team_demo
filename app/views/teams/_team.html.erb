@@ -1,0 +1,11 @@
+<li>
+  <span class="content"><%= link_to team.name %></span>
+  <span class="timestamp">
+    Created <%= time_ago_in_words(team.created_at) %> ago.
+  </span>
+   <% if current_user?(team.user) %>
+    <%= link_to "delete", team, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: team.name %>
+  <% end %>
+</li>
